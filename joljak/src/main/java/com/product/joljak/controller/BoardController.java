@@ -34,8 +34,8 @@ public class BoardController {
         Page<Board> list = boardService.boardList(pageable);
 //        Page<Board> list = boardService.boardList(pageable);
         int nowPage = list.getPageable().getPageNumber() + 1;
-        int startPage = Math.max(nowPage - 4, 1);
-        int endPage = Math.min(nowPage + 5, list.getTotalPages());
+        int startPage = Math.max(nowPage - 2, 1);
+        int endPage = Math.min(nowPage + 2, list.getTotalPages());
 
 //        model.addAttribute("boardList", boardService.boardList(pageable));
         model.addAttribute("list", list);
@@ -53,7 +53,7 @@ public class BoardController {
     @PostMapping("/boardwritepro")
     public String boardWritePro(Board board) {
         boardService.write(board);
-        return "";
+        return "redirect:board";
     }
 
     @GetMapping("/board/view")
@@ -62,8 +62,15 @@ public class BoardController {
         return "board/boardview";
     }
 
+//    @GetMapping("/board/views/{id}")
+//    public String view(@PageableDefault("id") Long id, Model model) {
+//        model.addAttribute("board", boardService.boardView(id));
+//        Long countVisit = model.getCount
+//    }
+
     @GetMapping("/login/login")
     public String login() {
+
         return "login/login";
     }
 

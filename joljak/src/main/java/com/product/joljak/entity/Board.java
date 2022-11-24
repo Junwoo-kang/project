@@ -17,9 +17,9 @@ public class Board {
 //    private String type;
     private String content;
 //    private String nickname;
-//    private Date regdate;
+    private String regdate;
 //    private Date updatedate;
-//    private Integer views;
+    private Long views;
 //    private Integer referrals;
 
 //    public Board() {
