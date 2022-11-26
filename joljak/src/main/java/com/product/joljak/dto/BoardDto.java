@@ -23,7 +23,7 @@ public class BoardDto {
     private LocalDateTime regdate;
     private LocalDateTime modifiedDate;
     //    private Date updatedate;
-    private Long views;
+    private int views;
 
     public Board toEntity() {
         Board build = Board.builder()
@@ -35,14 +35,15 @@ public class BoardDto {
         return build;
     }
 
-    @Builder
 
-    public BoardDto(Long id, String title, String content, String nickname, LocalDateTime regdate, LocalDateTime modifiedDate) {
+    @Builder
+    public BoardDto(Long id, String title, String content, String nickname, LocalDateTime regdate, LocalDateTime modifiedDate, int views) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.nickname = nickname;
         this.regdate = regdate;
         this.modifiedDate = modifiedDate;
+        this.views = views;
     }
 }

@@ -25,8 +25,10 @@ public class Board extends TimeEntity{
 //    @Column(length = 10,nullable = false)
     private String nickname;
 
-    @Column(nullable = true)
-    private Long views;
+    @Column(columnDefinition = "integer default 0", nullable = false)
+    private int views;
+
+    //    private Integer referrals;
 
     @Builder
     public Board(Long id, String title, String content, String nickname) {
@@ -36,7 +38,6 @@ public class Board extends TimeEntity{
         this.nickname = nickname;
     }
 
-    //    private Integer referrals;
 
 //    public Board() {
 //    }
