@@ -9,6 +9,6 @@ import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository
-public interface BoardRepository extends JpaRepository<Board,Integer>{
+public interface BoardRepository extends JpaRepository<Board,Long>{
 
 }

@@ -4,23 +4,39 @@ import lombok.*;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
+@Getter
 @Entity
-@Data
-public class Board {
+@NoArgsConstructor(access=AccessLevel.PROTECTED)
+public class Board extends TimeEntity{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue
+    private Long id;
 
+    @Column(length = 100,nullable = false)
     private String title;
 //    private String type;
+
+    @Column(columnDefinition = "TEXT",nullable = false)
     private String content;
-//    private String nickname;
-    private String regdate;
-//    private Date updatedate;
+
+//    @Column(length = 10,nullable = false)
+    private String nickname;
+
+    @Column(nullable = true)
     private Long views;
-//    private Integer referrals;
+
+    @Builder
+    public Board(Long id, String title, String content, String nickname) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.nickname = nickname;
+    }
+
+    //    private Integer referrals;
 
 //    public Board() {
 //    }

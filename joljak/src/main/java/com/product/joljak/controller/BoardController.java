@@ -1,5 +1,6 @@
 package com.product.joljak.controller;
 
+import com.product.joljak.dto.BoardDto;
 import com.product.joljak.entity.Board;
 import com.product.joljak.service.BoardService;
 import lombok.NoArgsConstructor;
@@ -51,13 +52,13 @@ public class BoardController {
     }
 
     @PostMapping("/boardwritepro")
-    public String boardWritePro(Board board) {
-        boardService.write(board);
+    public String boardWritePro(BoardDto boardDto) {
+        boardService.write(boardDto);
         return "redirect:board";
     }
 
     @GetMapping("/board/view")
-    public String boardView(Model model, Integer id) {
+    public String boardDetail(Model model, Long id) {
         model.addAttribute("board", boardService.boardView(id));
         return "board/boardview";
     }

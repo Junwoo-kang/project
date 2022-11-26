@@ -1,15 +1,12 @@
 package com.product.joljak.service;
 
+import com.product.joljak.dto.BoardDto;
 import com.product.joljak.entity.Board;
 import com.product.joljak.repository.BoardRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 public class  BoardService {
@@ -24,16 +21,15 @@ public class  BoardService {
     }
 
     //  글쓰기
-    public void write(Board board) {
+    public Long write(BoardDto boardDto) {
 
-        boardRepository.save(board);
+        return boardRepository.save(boardDto.toEntity()).getId();
     }
 
     //상세페이지
-    public Board boardView(Integer id) {
+    public Board boardView(Long id) {
         return boardRepository.findById(id).get();
     }
 
-//    public void updateVisit(Integer id, )
 
 }
