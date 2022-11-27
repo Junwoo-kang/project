@@ -33,14 +33,14 @@
 
                 <nav class="navbar navbar-light">
                     <div class="container">
-                        <a class="navbar-brand" th:href="@{/}">
+                        <a class="navbar-brand" th:href="@{/main}">
                             <img src="images/assem_logo_background.png" alt="" width="62.58" height="40">
                         </a>
                     </div>
                 </nav>
 
                 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-4 link-secondary">코스정보</a></li>
+                    <li><a th:href="@{/}" class="nav-link px-4 link-secondary">코스정보</a></li>
                     <li><a href="#" class="nav-link px-4 link-dark">네비게이션</a></li>
                     <li><a th:href="@{/board}" class="nav-link px-4 link-dark">게시판</a></li>
                     <li><a href="#" class="nav-link px-4 link-dark">마이페이지</a></li>

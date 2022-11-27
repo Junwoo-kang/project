@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 @NoArgsConstructor
 public class BoardController {
@@ -28,7 +30,18 @@ public class BoardController {
     private BoardRepository boardRepository;
 
     @GetMapping("/")
-    public String main() {
+    public String course(Model model, @PageableDefault(page = 0, size = 5, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        Page<Board> list = boardService.boardList(pageable);
+
+        model.addAttribute("list", list);
+        return "course";
+    }
+
+    @GetMapping("/main")
+    public String main(Model model, @PageableDefault(page = 0, size = 5, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        Page<Board> list = boardService.boardList(pageable);
+
+        model.addAttribute("list", list);
         return "main";
     }
 
@@ -67,7 +80,8 @@ public class BoardController {
 //        model.addAttribute("board", boardService.boardView(id));
 //        return "board/boardview";
 //    }
-    // 조회수 증가
+
+    // 조회수 증가 적용
     @GetMapping("/board/view")
     public String boardDetail(Model model, Long id) {
         Board board = boardService.boardView(id);
@@ -75,24 +89,11 @@ public class BoardController {
         model.addAttribute("board", board);
         return "board/boardview";
     }
-//    @GetMapping("/board/view/{id}")
-//    public String boardDetail(Model model, @PathVariable("id") Long id) {
-//        Board board = boardService.boardView(id);
-//
-//        BoardDto boardDto = new BoardDto();
-//        boardDto.setId(id);
-//        boardDto.setTitle(board.getTitle());
-//        boardDto.setContent(board.getContent());
-//        model.addAttribute("boardDto", boardDto);
-//
-////        model.addAttribute("board", boardService.boardView(id));
-//        return "board/boardview"+id;
-//    }
 
-//    @GetMapping("/board/views/{id}")
-//    public String view(@PageableDefault("id") Long id, Model model) {
-//        model.addAttribute("board", boardService.boardView(id));
-//        Long countVisit = model.getCount
+    // 카카오개발자에서 주소지정 불가.
+//    @GetMapping("/course")
+//    public String Course() {
+//        return "course";
 //    }
 
     @GetMapping("/login/login")
