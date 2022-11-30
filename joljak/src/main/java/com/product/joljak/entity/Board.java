@@ -4,6 +4,7 @@ import lombok.*;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -15,10 +16,12 @@ public class Board extends TimeEntity{
     @GeneratedValue
     private Long id;
 
+//    @NotEmpty(message = "제목은 비워둘 수 없습니다.")
     @Column(length = 100,nullable = false)
     private String title;
 //    private String type;
 
+//    @NotEmpty(message = "내용은 비워둘 수 없습니다.")
     @Column(columnDefinition = "TEXT",nullable = false)
     private String content;
 

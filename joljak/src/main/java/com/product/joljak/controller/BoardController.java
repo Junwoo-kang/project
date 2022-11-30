@@ -96,16 +96,12 @@ public class BoardController {
 //        return "course";
 //    }
 
-    @GetMapping("/login/login")
-    public String login() {
 
-        return "login/login";
-    }
 
-    @GetMapping("/signup")
-    public String signup() {
-        return "signup";
-    }
+//    @GetMapping("/signup")
+//    public String signup() {
+//        return "signup";
+//    }
 
 
 }

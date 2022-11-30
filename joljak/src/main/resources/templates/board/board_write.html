@@ -13,11 +13,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
-<!--    <script th:src="@{api/summernote-0.8.18-dist/summernote-lite.js}"></script>-->
-<!--    <script th:src="@{api/summernote-0.8.18-dist/lang/summernote-ko-KR.js}"></script>-->
-<!--    <link rel="stylesheet" th:href="@{api/summernote-0.8.18-dist/summernote-lite.css}">-->
-
     <script src="api/summernote-0.8.18-dist/summernote-lite.js"></script>
     <script src="api/summernote-0.8.18-dist/lang/summernote-ko-KR.js"></script>
     <link rel="stylesheet" href="api/summernote-0.8.18-dist/summernote-lite.css">
@@ -42,7 +37,7 @@
 
             <!-- Editor -->
             <div class="container">
-                <textarea class="summernote" name="content"></textarea>
+                <textarea name="content"></textarea>
             </div>
 
             <script>
@@ -50,6 +45,7 @@
                 height: 450,
                 lang: "ko-KR",
             });
+            $('#summernote').summernote('pasteHTML', data);
             </script>
 
             <!-- Submit -->

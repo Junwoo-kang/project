@@ -53,7 +53,7 @@ public class  BoardService {
         return board;
     }
 
-
+    //조회수 증가
     @Transactional
     public int updateView(Long id) {
         return boardRepository.updateView(id);
